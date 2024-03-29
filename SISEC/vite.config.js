@@ -1,7 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
+  esbuild: {
+    loader: {
+      '.css': 'css' // Agrega esta línea para especificar cómo manejar los archivos CSS
+    },
+  },
   plugins: [react()],
-})
+});
