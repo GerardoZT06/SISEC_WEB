@@ -1,23 +1,33 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
-export default class Login extends Component {
-    handleSubmit = (event) => {
-        event.preventDefault();
-        //  agregar la lógica de validación del formulario
-        // Si la validación falla, muestra una alerta de SweetAlert2
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: '¡Algo salió mal!', // Texto de la alertaMEQUEDE AQUI
-          
-        });
-      }
-  render() {
-    return (
-       
-        <form style={{ width: "90%", margin: "auto", alignItems: "center" }}>
+export default function Login() {
+  const navigate = useNavigate(); // useNavigate para la redirección
+
+  const [email, setEmail] = useState(""); // useState para el estado del correo electrónico
+  const [password, setPassword] = useState(""); // useState para el estado de la contraseña
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Agrega la lógica de validación del formulario
+    if (email === "admin@utez.edu.mx" && password === "contraseña") {
+      // Si las credenciales son válidas, redirige al dashboard
+      navigate("/dashboard");
+    } else {
+      // Si la validación falla, muestra una alerta de SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'MAMASTE...',
+        text: '¡Credenciales inválidas!',
+      });
+    }
+  };
+
+  return (
+    <div style={{ backgroundColor: "#002E60", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <form style={{ width: "100%", maxWidth: "700px", backgroundColor: "#ffffff", padding: "30px", borderRadius: "15px" }} onSubmit={handleSubmit}>
         <img
           src="/src/assets/img/logoCEL.png"
           alt="logoutez"
@@ -29,26 +39,30 @@ export default class Login extends Component {
           }}
         />
         <div className="mb-3">
-        <label>Correo Electrónico</label>
-        <div className="input-group">
-          <input
-            type="email"
-            className="form-control"
-            placeholder="correo electrónico"
-          />
-           <span className="input-group-text"><i className="bi bi-envelope"></i></span>
-        </div>
+          <label>Correo Electrónico</label>
+          <div className="input-group">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} // Actualiza el estado del correo electrónico
+            />
+            <span className="input-group-text"><i className="bi bi-envelope"></i></span>
+          </div>
         </div>
         <div className="mb-3">
-        <label> Contraseña</label>
-        <div className="input-group">
-          <input
-            type="password"
-            className="form-control"
-            placeholder="contraseña"
-          />
-          <span className="input-group-text"><i className="bi bi-lock"></i></span>
-        </div>
+          <label> Contraseña</label>
+          <div className="input-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} // Actualiza el estado de la contraseña
+            />
+            <span className="input-group-text"><i className="bi bi-lock"></i></span>
+          </div>
         </div>
         <div className="mb-3" >
           <div className="custom-control custom-checkbox">
@@ -62,8 +76,8 @@ export default class Login extends Component {
             </label>
           </div>
         </div>
-        <div className="d-grid" style={{ width: "40%", margin: "auto" }}>
-          <button type="submit" className="btn btn-success">
+        <div className="d-flex justify-content-center">
+          <button  style={{ width: "40%" }}  type="submit" className="btn btn-success">
             Iniciar
           </button>
         </div>
@@ -71,7 +85,6 @@ export default class Login extends Component {
           ¿Olvidaste la contraseña? <a href="#">Recuperar</a>
         </p>
       </form>
-    
-    );
-  }
+    </div>
+  );
 }
