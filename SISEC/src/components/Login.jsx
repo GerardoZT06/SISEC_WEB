@@ -14,13 +14,22 @@ export default function Login() {
     // Agrega la lógica de validación del formulario
     if (email === "admin@utez.edu.mx" && password === "contraseña") {
       // Si las credenciales son válidas, redirige al dashboard
-      navigate("/dashboard");
+      Swal.fire({
+        icon: 'success',
+        title: '¡Bienvenido!',
+        text: 'Has iniciado sesión correctamente',
+        timer: 2000, // Cambia la duración de la alerta a 2 segundos
+        showConfirmButton: false
+      });
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000); // Redirige después de 2 segundos
     } else {
       // Si la validación falla, muestra una alerta de SweetAlert2
       Swal.fire({
         icon: 'error',
-        title: 'MAMASTE...',
-        text: '¡Credenciales inválidas!',
+        title: '¡Error!',
+        text: 'Credenciales inválidas, por favor intenta de nuevo',
       });
     }
   };
