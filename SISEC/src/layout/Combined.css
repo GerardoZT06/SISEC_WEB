@@ -1,0 +1,60 @@
+.administrador-text {
+    max-width: calc(100% - 50px); /* Ajusta el ancho máximo para que haya espacio para el logo */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    margin-left: 30px;
+    vertical-align: middle;
+    margin-top: 20px; /* Ajusta la posición del texto hacia arriba */
+  }
+
+  .navbar {
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #26325a;
+  padding: 20px; /* Aumenta el padding */
+  font-size: 18px; /* Aumenta el tamaño del texto */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-image {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .administrador-text {
+    color: #fff;
+    margin:0;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .nav-item {
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+   
+  }
+  
+  .nav-item:hover {
+    background-color: rgb(32, 86, 99);
+    
+  }
+  
+  .edit-button {
+    margin-left: 5px; /* Ajusta este valor según el espacio deseado */
+  }
+  

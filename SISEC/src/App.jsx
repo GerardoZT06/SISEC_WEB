@@ -5,7 +5,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './components/Login';
 
-import Home from './layout/Home';
+
+import CombinedComponent from './layout/CombinedComponent';
 
 
 
@@ -17,8 +18,8 @@ function App() {
           <div className="auth-inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
-              <Route path="/dashboard" element={<Home/>} /> 
-              <Route path="/sign-up" element={<Login />} />
+              <Route path="/dashboard" element={<CombinedComponent/>} /> 
+              <Route path="/login" element={<Login />} />
             </Routes>
           </div>
         </div>
