@@ -47,3 +47,4 @@ export default class Registro extends Component {
         );
     }
 }
+
